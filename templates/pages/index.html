@@ -1,0 +1,194 @@
+{% extends 'base.html'%} {% load static%} {% load humanize %} {% block title %} | Welcome {% endblock %} {% block content%}
+<!-- Showcase -->
+<section id="showcase">
+
+    <div class="container text-center">
+        <div class="home-search p-5">
+            <div class="overlay p-2">
+
+                <div class="search">
+                    <form action="{% url 'search'%}">
+                        <!-- Form Row 1 -->
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label class="sr-only">Keywords</label>
+                                <input type="text" name="keywords" class="form-control" placeholder="Search Our Products">
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label class="sr-only">Category</label>
+                                <select name="category" class="form-control">
+                                <option selected="true" disabled="disabled" value="{{ values.category}}" >CATEGORY (All)</option>
+                                {% for key,value in category_choices.items %}
+                                <option value="{{ key }}"
+                                {% if key == values.category %}
+                                        selected
+                                {% endif %}
+                                >{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <button class="btn btn-secondary btn-block  " type="submit">Search..</button>
+                            </div>
+
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
+<!-- Listings -->
+<section id="listings" class="py-5">
+    <div class="container">
+        <h3 class="text-center mb-3">Our Latest Products</h3>
+        <div class="row">
+
+            {% if listings %} {% for listing in listings %}
+            <!-- Listing 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-preview">
+                    <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                    <div class="card-img-overlay">
+                        <h2>
+                            <span class="badge badge-secondary text-white">${{ listing.price | intcomma }}</span>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="listing-heading text-center">
+                            <h4 class="text-primary">{{ product }}</h4>
+                            <h1 class="display-4">{{ listing.product }}</h1>
+                            <p>
+                                <i class="fas fa-barcode"></i> {{listing.model}}</p>
+                        </div>
+                        <hr>
+                        <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor%} {% else%}
+            <div class="col-md-12">
+                <p> No Listings Available </p>
+            </div>
+            {% endif%}
+
+
+
+        </div>
+    </div>
+</section>
+
+
+<!--crousle css-->
+<section class="slideshow">
+    <h2 style="text-align:center">Slideshow Gallery</h2>
+
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="{% static 'img/1.jpg'%}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="{% static 'img/2.jpg'%}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="{% static 'img/3.jpg'%}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="{% static 'img/4.jpg'%}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="{% static 'img/5.jpg'%}" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="{% static 'img/6.jpg'%}" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="{% static 'img/1.jpg'%}" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'img/2.jpg'%}" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'img/3.jpg'%}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'img/4.jpg'%}" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'img/5.jpg'%}" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="{% static 'img/6.jpg'%}" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+            </div>
+        </div>
+    </div>
+</section>
+<!--crousel css-->
+
+
+
+<section id="services" class="py-5 bg-secondary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fas fa-comment fa-4x mr-4"></i>
+                <hr>
+                <h3>Who We Are ??</h3>
+                <p>K3 Pro Corporation was founded in 1999 K3 Pro is a mobile accessories company with the main focus on Making affordable and reliable products such as ( Cables – Chargers - Handsfree – Batteries – etc… ) K3 Activities is Manufacture , Packaging
+                    , import , export , distribute ..</p>
+            </div>
+            <!-- <div class="col-md-4">
+                <i class="fas fa-map-marked-alt fa-4x mr-4"></i>
+                <hr>
+                <h3>Production Quota</h3>
+                <p>K3 Pro Corporation has it’s own Chinese production line work exclusively to cover K3 market needs , with a monthly production volume of 500.000 Unit .</p>
+            </div> -->
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <i class="fas fa-map-marked-alt fa-4x mr-4"></i>
+                <hr>
+                <h3>Where We Are ?</h3>
+                <p style="color: red;">Egypt : </p>
+                <p>Head Office : 10 MOSTAFA ELNAHAS ST. – NASER CITY – CAIRO </p>
+                <p>TELEPHONE : +2-22737177 </p>
+                <p>Branch1 : 172 MOHAMED ALI ST. – ATABA – CAIRO </p>
+                <p>TELEPHONE : +2-223930740 </p>
+                <p>Branch2 : ZAMZAM COMPOUND – BELBIES – SHARQIA</p>
+                <p>TELEPHONE : +55-2859238 </p>
+                <p style="color: red;">CHINA: </p>
+                <p>Factory1 : SHENZHEN - CHINA</p>
+                <p>TELEPHONE : 00861832000071 </p>
+                <p>Factory2 : GUANGZHOU - CHINA</p>
+                <p>TELEPHONE : 00861832000072 </p>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+{% endblock%}

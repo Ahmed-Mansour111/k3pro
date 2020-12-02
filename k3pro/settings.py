@@ -84,15 +84,31 @@ WSGI_APPLICATION = 'k3pro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'k3pro-1',
-        'USER': 'postgres',
-        'PASSWORD':'ahmed',
-        'HOST':'localhost'
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'k3pro-1',
+            'USER': 'postgres',
+            'PASSWORD':'ahmed',
+            'HOST':'localhost'
+        }
+    }   
+
+else:   
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'k3prodb',
+            'USER': 'mansour',
+            'PASSWORD': 'mansourdb',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
     }
-}
+
+
+
 
 
 # Password validation

@@ -20,7 +20,7 @@ class Listing(models.Model):
     USB_Type = models.CharField(max_length=100 , choices=USB_TYPE , default='V8')
     description = models.TextField(blank=True)
     price = models.IntegerField()
-    photo_main = models.ImageField(upload_to='photos/')
+    photo_main = models.ImageField(upload_to='photos/',blank=True , null=True)
     photo_1=models.ImageField(upload_to='photos/',blank=True)
     photo_2=models.ImageField(upload_to='photos/',blank=True)
     photo_3=models.ImageField(upload_to='photos/',blank=True)

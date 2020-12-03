@@ -27,8 +27,8 @@ SECRET_KEY = '0#v-a8bm8=0f6=91@i(j1ni84xpt!c*4k2v*tlvcim9lc75pdw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['157.230.214.215']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['157.230.214.215']
+# ALLOWED_HOSTS = []
 
 
 
@@ -88,29 +88,29 @@ WSGI_APPLICATION = 'k3pro.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': 'k3prodb',
-#             'USER': 'mansour',
-#             'PASSWORD': 'mansourdb',
-#             'HOST': 'localhost',
-#             'PORT': '',
-#         }
-#     } 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'k3prodb',
+            'USER': 'mansour',
+            'PASSWORD': 'mansourdb',
+            'HOST': 'localhost',
+            'PORT': '',
+    }
+} 
 
 # else:   
 
 
-DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'k3pro-1',
-                'USER': 'postgres',
-                'PASSWORD':'ahmed',
-                'HOST':'localhost'
-            }
-} 
+# DATABASES = {
+#             'default': {
+#                 'ENGINE': 'django.db.backends.postgresql',
+#                 'NAME': 'k3pro-1',
+#                 'USER': 'postgres',
+#                 'PASSWORD':'ahmed',
+#                 'HOST':'localhost'
+#             }
+# } 
 
 
 

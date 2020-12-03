@@ -27,13 +27,13 @@ def contact(request):
     contact.save()
 
     # Send email
-    send_mail(
-      'K3 Pro Order',
-      'There is an order from ( '+ name + ' ),is ordring ( ' + listing + ' ). Moblie: ( '+ phone + ' )..',
-      'ahmed.m.mansour1111@gmail.com',
-      [rep_email, 'ahmed.m.mansour1111@gmail.com'],
-      fail_silently=False
-    )
+    # send_mail(
+    #   'K3 Pro Order',
+    #   'There is an order from ( '+ name + ' ),is ordring ( ' + listing + ' ). Moblie: ( '+ phone + ' )..',
+    #   'ahmed.m.mansour1111@gmail.com',
+    #   [rep_email, 'ahmed.m.mansour1111@gmail.com'],
+    #   fail_silently=False
+    # )
 
     messages.success(request, 'Your request has been submitted, a representative will get back to you soon')
     return redirect('/listings/'+listing_id)

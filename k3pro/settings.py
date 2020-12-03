@@ -27,7 +27,10 @@ SECRET_KEY = '0#v-a8bm8=0f6=91@i(j1ni84xpt!c*4k2v*tlvcim9lc75pdw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['157.230.214.215']
+# ALLOWED_HOSTS = ['157.230.214.215']
+ALLOWED_HOSTS = []
+
+
 
 
 # Application definition
@@ -87,27 +90,27 @@ WSGI_APPLICATION = 'k3pro.wsgi.application'
 # if DEBUG:
 #     DATABASES = {
 #         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'k3pro-1',
-#             'USER': 'postgres',
-#             'PASSWORD':'ahmed',
-#             'HOST':'localhost'
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': 'k3prodb',
+#             'USER': 'mansour',
+#             'PASSWORD': 'mansourdb',
+#             'HOST': 'localhost',
+#             'PORT': '',
 #         }
-#     }   
+#     } 
 
 # else:   
+
+
 DATABASES = {
-    'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-          'NAME': 'k3prodb',
-         'USER': 'mansour',
-         'PASSWORD': 'mansourdb',
-         'HOST': 'localhost',
-         'PORT': '',
-      }
- }
-
-
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'k3pro-1',
+                'USER': 'postgres',
+                'PASSWORD':'ahmed',
+                'HOST':'localhost'
+            }
+} 
 
 
 
@@ -172,9 +175,4 @@ EMAIL_HOST_USER='ahmed.sayed12396@gmail.com'
 EMAIL_HOST_PASSWORD='@hm3d2100'
 EMAIL_USE_TLS=True
 
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER='ahmed.sayed12396@gmail.com'
-# EMAIL_HOST_PASSWORD='@hm3d2100'
-# EMAIL_USE_TLS=True
 

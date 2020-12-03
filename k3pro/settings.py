@@ -27,7 +27,7 @@ SECRET_KEY = '0#v-a8bm8=0f6=91@i(j1ni84xpt!c*4k2v*tlvcim9lc75pdw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['157.230.214.215']
+ALLOWED_HOSTS = ['157.230.214.215' , 'k3-pro.com' , 'www.k3-pro.com']
 # ALLOWED_HOSTS = []
 
 
